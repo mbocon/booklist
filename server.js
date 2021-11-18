@@ -20,11 +20,12 @@ const db = mongoose.connection;
 db.on('connected', () => console.log('Connected to MongoDB'));
 db.on('error', (err) => console.log('MongoDB Error: ' + err.message));
 
+// setting up view engine
+app.set("view engine", "jsx"); // sets up jsx for react
+app.engine("jsx", require("express-react-views").createEngine()); // creates jsx engine
 
 // mount middleware
 app.use(express.urlencoded({ extended: false })); // creates req.body
-app.set("view engine", "jsx"); // sets up jsx for react
-app.engine("jsx", require("express-react-views").createEngine()); // creates jsx engine
 app.use(express.static('public')); // sets up public folder for static files
 app.use(methodOverride('_method')); // allows us to use PUT and DELETE routes
 
