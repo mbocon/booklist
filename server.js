@@ -54,11 +54,15 @@ app.get('/books/new', (req, res) => {
 
 // create route
 app.post('/books', (req, res) => {
-    if (req.body.completed === 'on') {
-        req.body.completed = true;
-    } else {
-        req.body.completed = false;
-    }
+    // if (req.body.completed === 'on') {
+    //     req.body.completed = true;
+    // } else {
+    //     req.body.completed = false;
+    // }
+
+    // alternative way to do the same as above commented out code.
+    req.body.completed = !!req.body.completed;
+
     Book.create(req.body, (err, book) => {
         if (err) {
             res.send(err);
@@ -97,11 +101,15 @@ app.get('/books/:id/edit', (req, res) => {
 
 // update route
 app.put('/books/:id', (req, res) => {
-    if (req.body.completed === 'on') {
-        req.body.completed = true;
-    } else {
-        req.body.completed = false;
-    }
+    // if (req.body.completed === 'on') {
+    //     req.body.completed = true;
+    // } else {
+    //     req.body.completed = false;
+    // }
+
+    // alternative way to do the same as above commented out code.
+    req.body.completed = !!req.body.completed;
+
     Book.findByIdAndUpdate(req.params.id, req.body, {
         new: true
     }, (err, book) => {
