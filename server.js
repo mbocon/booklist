@@ -10,6 +10,9 @@ const app = express();
 // configure settings
 require('dotenv').config();
 
+// heroku or any cloud service will set this value for us
+const PORT = process.env.PORT || 3000;
+
 // connect to and configure mongoDB with mongoose
 
 mongoose.connect(process.env.DATABASE_URL);
@@ -123,10 +126,7 @@ app.delete('/books/:id', (req, res) => {
 
 
 // tell the app to listen
-
-const PORT = process.env.PORT || 3000;
-// heroku or any cloud service will set this value for us
-
 app.listen(PORT, () => {
     console.log('Express is listening on port: ' + PORT);
 });
+

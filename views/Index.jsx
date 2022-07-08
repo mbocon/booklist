@@ -2,6 +2,7 @@ import React from 'react';
 import Default from './Default';
 
 function Index(props) {
+    // console.log(props, 'are the props in the index');
     return (
         <Default>
             <div className="index">

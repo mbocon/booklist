@@ -1,6 +1,6 @@
 // require dependencies
-const monogoose = require('mongoose');
-const Schema = monogoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // define schema
 const bookSchema = new Schema({
@@ -21,4 +21,4 @@ const bookSchema = new Schema({
 });
 
 // export model
-module.exports = monogoose.model('Book', bookSchema);
+module.exports = mongoose.model('Book', bookSchema);

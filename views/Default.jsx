@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Default(props) {
+    console.log(props, 'are the props in the default view');
     return (
         <html>
             <head>
@@ -21,9 +22,9 @@ function Default(props) {
                         </ul>
                     </div>
                 </nav>
-                <div id="app">
+                <main id="app">
                     {props.children}
-                </div>
+                </main>
                 <footer>
                     All Rights Reserved &copy; {new Date().getFullYear()}
                 </footer>
